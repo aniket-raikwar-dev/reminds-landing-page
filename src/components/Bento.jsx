@@ -9,7 +9,7 @@ for (let r = 0; r < 6; r++) for (let c = 0; c < 14; c++) {
 export default function Bento() {
   return (
     <section id="features"><div className="wrap">
-      <h2 className="serif">Built to be noticed, designed to stay calm.</h2>
+      <h2 className="serif">Built to be <span className="sans-emphasis">noticed</span>, designed to stay calm.</h2>
       <div className="bento">
         <div className="cell c1"><small>DO NOT DISTURB</small><div className="serif big">Gets through</div><p>Important reminders break through Do Not Disturb and silent mode, so you never miss the one that counts.</p>
           <svg viewBox="0 0 260 150" height="150">{bars.map((h, i) => <rect key={i} className="bar" x={i * 37} y={150 - h * 1.4} width="32" height={h * 1.4} fill={barC[i]} />)}</svg></div>
