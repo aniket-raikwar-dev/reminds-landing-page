@@ -9,11 +9,11 @@ export function Join({ dark }) {
           You’re on the list. We’ll email you when Reminds opens.</motion.p>
       ) : (
         <motion.div key="f" exit={{ opacity: 0, y: -10 }}>
-          <div className="form">
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && submit()} placeholder="Your email address" aria-label="Email address" />
-            <motion.button className={dark ? 'btn' : 'btn g'} onClick={submit} disabled={status === 'loading'} whileTap={{ scale: .95 }}>
+          <form className="form" onSubmit={submit}>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" aria-label="Email address" autoComplete="email" required />
+            <motion.button type="submit" className={dark ? 'btn' : 'btn g'} disabled={status === 'loading'} whileTap={{ scale: .95 }}>
               {status === 'loading' ? 'Joining…' : 'Join waitlist'}</motion.button>
-          </div>
+          </form>
           {error && <p role="alert" style={{ fontSize: 13, marginTop: 8 }}>{error}</p>}
         </motion.div>)}
     </AnimatePresence>)
