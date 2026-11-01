@@ -7,94 +7,64 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const waitlistEmailHtml = `
 <!doctype html>
 <html lang="en">
-  <body style="margin:0;padding:0;background-color:#f1eee6;font-family:Arial,Helvetica,sans-serif;color:#14201a;">
-    <div style="display:none;font-size:1px;color:#f1eee6;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
-      You're on the Reminds waitlist. Get product updates and early-access news as we build.
-    </div>
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f1eee6;">
-      <tr>
-        <td align="center" style="padding:32px 14px;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background-color:#faf8f2;border:1px solid #e5e0d4;border-radius:22px;overflow:hidden;">
-            <tr>
-              <td align="center" style="padding:28px 28px 22px;">
-                <a href="https://www.getreminds.com" style="display:inline-block;padding:9px 16px;border-radius:10px;background-color:#14201a;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:1;letter-spacing:-1px;">
-                  <span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;">re</span><span style="font-family:Arial,Helvetica,sans-serif;font-style:normal;font-weight:400;">minds</span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 28px 26px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#b79ceb;border-radius:18px;">
-                  <tr>
-                    <td style="padding:22px 20px 20px;">
-                      <p style="margin:0 0 15px;color:#14201a;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">A calmer way to keep your day on track</p>
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#faf8f2;border-radius:14px;">
-                        <tr>
-                          <td width="58" align="center" valign="middle" style="padding:15px 0 15px 15px;">
-                            <table role="presentation" width="42" height="42" cellspacing="0" cellpadding="0" border="0" style="background-color:#f6bcd6;border-radius:13px;">
-                              <tr><td align="center" valign="middle" style="color:#14201a;font-size:20px;font-weight:700;">✓</td></tr>
-                            </table>
-                          </td>
-                          <td valign="middle" style="padding:14px 12px;">
-                            <p style="margin:0 0 4px;color:#788079;font-size:10px;font-weight:700;letter-spacing:1px;">TODAY · 6:30 PM</p>
-                            <p style="margin:0;color:#14201a;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.2;">Remember what matters.</p>
-                          </td>
-                          <td width="58" align="center" valign="middle" style="padding:12px 14px 12px 0;">
-                            <table role="presentation" width="42" height="42" cellspacing="0" cellpadding="0" border="0" style="background-color:#3e8f6b;border-radius:50%;">
-                              <tr><td align="center" valign="middle" style="color:#ffffff;font-size:18px;font-weight:700;">♪</td></tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                      <p style="margin:13px 0 0;color:#14201a;font-size:12px;line-height:1.5;">Tasks · timeline · calendar · sounds that get through</p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 34px 30px;">
-                <span style="display:inline-block;padding:7px 13px;border-radius:20px;background-color:#f6bcd6;color:#14201a;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">You're on the waitlist</span>
-                <h1 style="margin:20px 0 13px;color:#14201a;font-family:Georgia,'Times New Roman',serif;font-size:40px;font-weight:400;line-height:1.08;letter-spacing:-1px;">You're on the Reminds waitlist.</h1>
-                <p style="margin:0;color:#5d6660;font-size:16px;line-height:1.7;">
-                  Thanks for joining the waitlist. Reminds is a task app for iOS and Android that brings tasks, reminders, a timeline, and a calendar together. Choose a sound for important reminders—even when Do Not Disturb is on.
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 34px 30px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#efeade;border:1px solid #e5e0d4;border-radius:15px;">
-                  <tr>
-                    <td style="padding:19px 20px;">
-                      <p style="margin:0 0 6px;color:#14201a;font-size:14px;font-weight:700;">What happens next?</p>
-                      <p style="margin:0;color:#5d6660;font-size:14px;line-height:1.6;">No action is needed. We'll send occasional product updates and let you know when early access is available.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 34px 34px;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                  <tr>
-                    <td align="center" style="border-radius:24px;background-color:#14201a;">
-                      <a href="https://www.getreminds.com" style="display:inline-block;padding:14px 23px;border:1px solid #14201a;border-radius:24px;color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;">See what we're building&nbsp; →</a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:21px 34px 25px;border-top:1px solid #e5e0d4;">
-                <p style="margin:0;color:#788079;font-size:12px;line-height:1.7;">
-                  You're receiving this because you joined the Reminds early access waitlist.<br>
-                  © Reminds · Made for the things you don't want to forget.
-                </p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <style>
+      :root { color-scheme: light dark; supported-color-schemes: light dark; }
+      @media (prefers-color-scheme: dark) {
+        .cta-cell { background:#ffffff !important; }
+        .cta-link { color:#14201a !important; }
+      }
+      [data-ogsc] .cta-cell { background:#ffffff !important; }
+      [data-ogsc] .cta-link { color:#14201a !important; }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;background:#efede6;color:#14201a;font-family:Arial,Helvetica,sans-serif;">
+    <div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">You're on the Reminds waitlist. We'll email you when early access is ready.</div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#efede6;">
+      <tr><td align="center" style="padding:28px 14px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:620px;background:#faf8f2;border:1px solid #dfddd5;border-radius:16px;">
+          <tr><td style="padding:30px 36px 23px;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+              <td align="left" valign="middle"><a href="https://www.getreminds.com" style="color:#14201a;text-decoration:none;font-size:28px;line-height:1;letter-spacing:-1.5px;"><span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;">re</span><span style="font-family:Arial,Helvetica,sans-serif;font-weight:400;">minds</span></a></td>
+              <td align="right" valign="middle" style="color:#5d6660;font-size:10px;font-weight:700;letter-spacing:1.5px;">EARLY ACCESS&nbsp; / &nbsp;01</td>
+            </tr></table>
+          </td></tr>
+          <tr><td style="padding:0 36px;"><div style="height:1px;background:#d9ddd5;"></div></td></tr>
+          <tr><td style="padding:40px 36px 24px;">
+            <p style="margin:0 0 18px;color:#3e8f6b;font-size:11px;font-weight:700;letter-spacing:1.7px;">● &nbsp;REMINDS &nbsp;·&nbsp; WAITLIST CONFIRMED</p>
+            <h1 style="margin:0;color:#14201a;font-family:Arial,Helvetica,sans-serif;font-size:44px;font-weight:400;line-height:1.08;letter-spacing:-2.6px;">You're on the list.</h1>
+            <p style="margin:7px 0 0;color:#568d73;font-family:Georgia,'Times New Roman',serif;font-size:30px;font-style:italic;font-weight:400;line-height:1.15;letter-spacing:-.8px;">We'll be in touch.</p>
+            <p style="margin:24px 0 0;color:#5d6660;font-size:15px;line-height:1.7;">Thanks for joining Reminds. We're building a calmer way to plan your tasks, hear the reminders that matter, and see your day. The app is coming to iOS and Android.</p>
+          </td></tr>
+          <tr><td style="padding:12px 36px 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#eef2ec;border:1px solid #d8e1d9;border-radius:14px;">
+              <tr><td colspan="3" style="padding:19px 20px 18px;color:#5d6660;font-size:10px;font-weight:700;letter-spacing:1.6px;">A DAY WITH REMINDS</td></tr>
+              <tr>
+                <td width="33.3%" valign="top" style="padding:0 10px 22px 20px;"><div style="height:5px;background:#568d73;margin-bottom:15px;"></div><p style="margin:0 0 5px;color:#568d73;font-size:10px;font-weight:700;letter-spacing:1px;">01 / PLAN</p><p style="margin:0;color:#14201a;font-size:14px;line-height:1.3;">Make a task</p></td>
+                <td width="33.3%" valign="top" style="padding:0 10px 22px;"><div style="height:5px;background:#cbb5ec;margin-bottom:15px;"></div><p style="margin:0 0 5px;color:#777082;font-size:10px;font-weight:700;letter-spacing:1px;">02 / HEAR</p><p style="margin:0;color:#14201a;font-size:14px;line-height:1.3;">Get reminded</p></td>
+                <td width="33.3%" valign="top" style="padding:0 20px 22px 10px;"><div style="height:5px;background:#f3bdd4;margin-bottom:15px;"></div><p style="margin:0 0 5px;color:#8b687b;font-size:10px;font-weight:700;letter-spacing:1px;">03 / DONE</p><p style="margin:0;color:#14201a;font-size:14px;line-height:1.3;">Check it off</p></td>
+              </tr>
+            </table>
+          </td></tr>
+          <tr><td style="padding:32px 36px 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid #d9ddd5;"><tr>
+              <td width="105" valign="top" style="padding-top:20px;color:#568d73;font-size:10px;font-weight:700;letter-spacing:1.2px;">WHAT'S NEXT</td>
+              <td valign="top" style="padding-top:17px;color:#5d6660;font-size:14px;line-height:1.6;">No action needed. We'll send you a note when Reminds is ready to try.</td>
+            </tr></table>
+          </td></tr>
+          <tr><td style="padding:32px 36px 42px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr><td class="cta-cell" style="background:#14201a;border-radius:8px;"><a class="cta-link" href="https://www.getreminds.com" style="display:inline-block;padding:14px 22px;color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;">Explore Reminds &nbsp;↗</a></td></tr></table>
+          </td></tr>
+          <tr><td style="padding:22px 36px 28px;border-top:1px solid #d9ddd5;">
+            <p style="margin:0 0 10px;color:#14201a;font-family:Georgia,'Times New Roman',serif;font-size:20px;font-style:italic;">Make room for what matters.</p>
+            <p style="margin:0;color:#788079;font-size:11px;line-height:1.7;">You're receiving this because you joined the Reminds waitlist.<br>© Reminds · Coming to iOS and Android.</p>
+          </td></tr>
+        </table>
+      </td></tr>
     </table>
   </body>
 </html>
@@ -162,7 +132,7 @@ Deno.serve(async (request) => {
         to: [email],
         subject: "You're on the Reminds waitlist",
         html: waitlistEmailHtml,
-        text: "You're on the Reminds waitlist. Thanks for joining. Reminds is a task app for iOS and Android that brings tasks, reminders, a timeline, and a calendar together. Choose a sound for important reminders—even when Do Not Disturb is on. No action is needed. We'll send occasional product updates and let you know when early access is available. Visit https://www.getreminds.com",
+        text: "You're on the list. Thanks for joining Reminds. We're building a calmer way to plan your tasks, hear the reminders that matter, and see your day. The app is coming to iOS and Android. No action needed. We'll send you a note when Reminds is ready to try. Explore Reminds: https://www.getreminds.com",
       }),
     })
 

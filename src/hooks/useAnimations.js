@@ -63,17 +63,11 @@ export default function useAnimations(root) {
           .to('.tech-pointer', { attr: { cy: 84 }, duration: .25, ease: 'power1.inOut' })
           .to('.tech-pointer', { opacity: 0, duration: .16, delay: .22 })
       })
-      gsap.utils.toArray('.hero-artwork .par').forEach((g, i) => gsap.to(g, {
-        x: +(g.dataset.baseX || 0) + +(g.dataset.x || 0),
-        y: +(g.dataset.baseY || 0) + +(g.dataset.d || 0), rotation: +(g.dataset.r || 0),
-        transformOrigin: '50% 50%', duration: 2.5 + (i % 3) * .45, delay: i * .12,
-        yoyo: true, repeat: -1, ease: 'sine.inOut',
-      }))
-      gsap.from('.bar', { scaleY: 0, transformOrigin: '50% 100%', stagger: .08, duration: .8, ease: 'power3.out', scrollTrigger: bentoSt('.bento', 'top 75%') })
-      gsap.from('.hc', { opacity: 0, stagger: { amount: 1.2, from: 'random' }, scrollTrigger: bentoSt('.c2') })
-      gsap.from('.tb', { scaleX: 0, transformOrigin: '0 50%', stagger: .2, duration: .9, ease: 'power3.out', scrollTrigger: bentoSt('.c3') })
-      gsap.from('.snd', { y: 24, opacity: 0, stagger: .12, duration: .6, ease: 'back.out(1.7)', scrollTrigger: bentoSt('.c4') })
-      gsap.from('.pf', { scaleX: 0, transformOrigin: '0% 50%', transformBox: 'fill-box', duration: 1.2, delay: .6, ease: 'power2.out', scrollTrigger: bentoSt('.c4') })
+      gsap.from('.bar', { scaleY: 0, transformOrigin: '50% 100%', stagger: .08, duration: .8, ease: 'power3.out', clearProps: 'transform', scrollTrigger: bentoSt('.bento', 'top 75%') })
+      gsap.from('.hc', { opacity: 0, stagger: { amount: 1.2, from: 'random' }, clearProps: 'opacity', scrollTrigger: bentoSt('.c2') })
+      gsap.from('.tb', { scaleX: 0, transformOrigin: '0 50%', stagger: .2, duration: .9, ease: 'power3.out', clearProps: 'transform', scrollTrigger: bentoSt('.c3') })
+      gsap.from('.snd', { y: 24, opacity: 0, stagger: .12, duration: .6, ease: 'back.out(1.7)', clearProps: 'transform,opacity', scrollTrigger: bentoSt('.c4') })
+      gsap.from('.pf', { scaleX: 0, transformOrigin: '0% 50%', transformBox: 'fill-box', duration: 1.2, delay: .6, ease: 'power2.out', clearProps: 'transform', scrollTrigger: bentoSt('.c4') })
       gsap.from('.cell', { y: 60, opacity: 0, stagger: .1, duration: .8, ease: 'power3.out', scrollTrigger: bentoSt('.bento', 'top 85%') })
       const scenes = gsap.utils.toArray('.story-scene')
       const storySteps = gsap.utils.toArray('.story-step')

@@ -27,11 +27,21 @@ export function Marquee() {
 }
 export default function Hero() {
   return (
-    <div className="wrap hero"><div>
-      <span className="tag h-a"><span className="tag-dot" aria-hidden="true" />App in Development <span className="tag-divider" aria-hidden="true">·</span> Early Access</span>
-      <h1 className="serif h-a"><span className="sans-emphasis">Reminders</span> that reach you, right on time.</h1>
-      <p className="sub h-a">Plan your tasks, choose a sound for each reminder, and let the important ones alert you—even during Do Not Disturb. Coming soon to iOS and Android.</p>
-      <div className="h-a"><Join /></div>
-      <div className="stats h-a"><div><b data-n="3">0</b><span>ways to see your day</span></div><div><b data-n="100" data-s="%">0</b><span>reminders get through</span></div><div><b data-n="1">0</b><span>built-in AI assistant</span></div></div>
-    </div><div className="art"><HeroArtwork /></div></div>)
+    <div className="wrap hero">
+      <div className="hero-meta h-a">
+        <span><span className="hero-meta-dot" aria-hidden="true" /> REMINDS <span className="hero-meta-separator">·</span> EARLY ACCESS</span>
+        <span>COMING TO IOS + ANDROID</span>
+      </div>
+      <div className="hero-copy">
+        <h1 className="h-a"><span className="hero-title-line hero-title-sans">Reminders that</span><span className="hero-title-line"><span className="hero-title-accent">reach you</span><span className="hero-title-sans">, right</span></span><span className="hero-title-line hero-title-sans">on time.</span></h1>
+        <p className="sub h-a">Plan your tasks, choose a sound for each reminder, and let the important ones alert you—even during Do Not Disturb.</p>
+        <div className="hero-join h-a"><Join /><small>Join the list for a note when the app is ready.</small></div>
+      </div>
+      <div className="art hero-art"><HeroArtwork /></div>
+      <div className="hero-features h-a" aria-label="What Reminds helps you do">
+        <div><span>01</span><strong>Plan your day</strong></div>
+        <div><span>02</span><strong>Hear what matters</strong></div>
+        <div><span>03</span><strong>See your progress</strong></div>
+      </div>
+    </div>)
 }
