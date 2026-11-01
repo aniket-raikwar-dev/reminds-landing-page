@@ -5,7 +5,10 @@ export function Join({ dark }) {
   const content = (
     <AnimatePresence mode="wait">
       {status === 'done' ? (
-        <motion.p key="ok" className="ok serif" initial={{ opacity: 0, y: 16, scale: .95 }} animate={{ opacity: 1, y: 0, scale: 1 }}>
+        dark ? <motion.div key="ok" className="wl-success" role="status" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
+          <span className="wl-success-icon" aria-hidden="true">✓</span>
+          <span><strong>You’re on the list.</strong><small>We’ll email you when Reminds opens.</small></span>
+        </motion.div> : <motion.p key="ok" className="ok serif" initial={{ opacity: 0, y: 16, scale: .95 }} animate={{ opacity: 1, y: 0, scale: 1 }}>
           You’re on the list. We’ll email you when Reminds opens.</motion.p>
       ) : (
         <motion.div key="f" className="wl-form-state" exit={{ opacity: 0, y: -10 }}>
@@ -24,9 +27,13 @@ export default function Waitlist() {
   return (
     <section id="waitlist" className="wlw" style={{ padding: 0 }}>
       <div className="wl"><div className="grain" />
-        <h2 className="serif"><span className="wm wm-inline-heading"><i>re</i><b>minds</b></span> is still being built. Join the waitlist.</h2>
-        <p style={{ maxWidth: 460, margin: '0 auto', color: '#e6e8ff' }}>Be first to try it. We’ll email you once when the app is ready, and nothing else.</p>
-        <Join dark />
-        <div className="chips"><span>No spam</span><span>One email at launch</span><span>iOS and Android</span></div>
+        <div className="wl-content">
+          <span className="wl-kicker"><span className="wl-kicker-dot" /> EARLY ACCESS <span className="wl-kicker-separator">·</span> IOS + ANDROID</span>
+          <h2><span className="wm wm-inline-heading"><i>re</i><b>minds</b></span> is still being built.<br />Join the waitlist.</h2>
+          <p className="wl-description">Be first to try it. We’ll email you once when the app is ready, and nothing else.</p>
+          <div className="wl-rule" aria-hidden="true" />
+          <Join dark />
+          <div className="chips"><span>No spam</span><span>One email at launch</span><span>iOS and Android</span></div>
+        </div>
       </div></section>)
 }

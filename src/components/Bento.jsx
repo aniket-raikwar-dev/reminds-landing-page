@@ -9,18 +9,46 @@ for (let r = 0; r < 6; r++) for (let c = 0; c < 14; c++) {
 export default function Bento() {
   return (
     <section id="features"><div className="wrap">
-      <h2 className="serif">Built to be <span className="sans-emphasis">noticed</span>, designed to stay calm.</h2>
+      <div className="bento-heading"><span className="bento-kicker">FEATURES <span>·</span> REMINDS</span><h2>Built to be noticed, designed to stay calm.</h2></div>
       <div className="bento">
-        <div className="cell c1"><small>DO NOT DISTURB</small><div className="serif big">Gets through</div><p>Important reminders break through Do Not Disturb and silent mode, so you never miss the one that counts.</p>
-          <svg viewBox="0 0 260 150" height="150">{bars.map((h, i) => <rect key={i} className="bar" x={i * 37} y={150 - h * 1.4} width="32" height={h * 1.4} fill={barC[i]} />)}</svg></div>
-        <div className="cell c2"><small>CALENDAR VIEW</small><div className="serif big">See the month</div><p>Busy days glow darker, so you can spot a packed week at a glance.</p><svg viewBox="0 0 306 130" height="110">{heat}</svg></div>
-        <div className="cell c3"><small>TIMELINE VIEW</small><div className="serif big">Plan the day</div><p>Your tasks stack in time order, hour by hour.</p>
-          <svg viewBox="0 0 300 100" height="90"><rect className="tb" width="300" height="100" fill="#FFC9A0" opacity=".5" /><rect className="tb" width="190" height="100" fill="#7A2E14" /><rect className="tb" x="190" width="110" height="46" fill="#E05A14" /><text x="12" y="88" fontSize="11" fill="#fff">9:00 Standup</text><text x="198" y="88" fontSize="11" fill={K}>1:00 Gym</text></svg></div>
-        <div className="cell c4"><small>CUSTOM SOUNDS</small><div className="serif big">Make it yours</div><p>Pick a tone for each task, from a soft chime to a loud alarm.</p>
-          <svg viewBox="0 0 260 110" height="110" role="img" aria-label="Tone picker">
+        <article className="cell c1"><div className="cell-copy"><small>DO NOT DISTURB</small><h3 className="serif big">Gets through</h3><p>Hear the reminders that matter, even during Do Not Disturb.</p></div>
+          <div className="cell-art"><svg viewBox="0 0 260 150" aria-hidden="true">{bars.map((h, i) => <rect key={i} className="bar" x={i * 37} y={150 - h * 1.4} width="32" height={h * 1.4} fill={barC[i]} />)}</svg></div></article>
+        <article className="cell c2"><div className="cell-copy"><small>CALENDAR VIEW</small><h3 className="serif big">See the month</h3><p>Spot your busiest days at a glance.</p></div>
+          <div className="cell-art"><svg viewBox="0 0 306 130" aria-hidden="true">{heat}</svg></div></article>
+        <article className="cell c3"><div className="cell-copy"><small>TIMELINE VIEW</small><h3 className="serif big">Plan the day</h3><p>See your tasks in time order, hour by hour.</p></div>
+          <div className="cell-art"><svg viewBox="0 0 300 112" role="img" aria-label="Today's timeline: Standup at 9 AM, Gym at 1 PM, and Team Meets at 6:30 PM">
+            <path d="M12 25H288" fill="none" stroke="#AC8B76" strokeWidth="2" />
+            <g className="tb">
+              <circle cx="22" cy="25" r="4" fill="#79442F" />
+              <path d="M22 29v14" stroke="#79442F" strokeWidth="2" />
+              <text x="12" y="15" fontSize="11" fontWeight="700" fill="#79442F">9 AM</text>
+              <rect x="12" y="43" width="92" height="54" fill="#79442F" />
+              <text x="21" y="75" fontSize="12" fontWeight="600" fill="#fff">Standup</text>
+              <path d="M21 84h45" stroke="#D5B19E" strokeWidth="3" />
+            </g>
+            <g className="tb">
+              <circle cx="119" cy="25" r="4" fill="#C76B39" />
+              <path d="M119 29v14" stroke="#C76B39" strokeWidth="2" />
+              <text x="109" y="15" fontSize="11" fontWeight="700" fill="#79442F">1 PM</text>
+              <rect x="109" y="43" width="92" height="54" fill="#C76B39" />
+              <text x="118" y="75" fontSize="12" fontWeight="600" fill="#fff">Gym</text>
+              <path d="M118 84h40" stroke="#F1BD98" strokeWidth="3" />
+            </g>
+            <g className="tb">
+              <circle cx="216" cy="25" r="4" fill="#B77B56" />
+              <path d="M216 29v14" stroke="#B77B56" strokeWidth="2" />
+              <text x="206" y="15" fontSize="11" fontWeight="700" fill="#79442F">6:30 PM</text>
+              <rect x="206" y="43" width="82" height="54" fill="#E9D2BC" />
+              <text x="215" y="72" fontSize="11" fontWeight="600" fill={K}>Team</text>
+              <text x="215" y="86" fontSize="11" fontWeight="600" fill={K}>Meets</text>
+            </g>
+            <path d="M12 103H288" fill="none" stroke="#AC8B76" strokeWidth="1" strokeOpacity=".55" />
+          </svg></div></article>
+        <article className="cell c4"><div className="cell-copy"><small>CUSTOM SOUNDS</small><h3 className="serif big">Make it yours</h3><p>Choose a sound that fits each reminder.</p></div>
+          <div className="cell-art"><svg viewBox="0 0 260 110" role="img" aria-label="Tone picker">
           <g className="snd"><rect width="260" height="48" rx="10" fill="#fff" /><circle cx="26" cy="24" r="14" fill={K} /><path d="M21 17l12 7-12 7z" fill="#fff" /><rect x="54" y="21" width="150" height="6" rx="3" fill="#D9DEF5" /><rect className="pf" x="54" y="21" width="62" height="6" rx="3" fill={K} /><text x="216" y="29" fontSize="12" fill={K}>0:02</text></g>
-          {['Chime', 'Bell', 'Alarm'].map((t, i) => <g className="snd" key={t}><rect x={i * 92} y="60" width="76" height="40" rx="10" fill={i === 0 ? K : '#fff'} /><text x={i * 92 + 38} y="85" fontSize="13" fontWeight="700" textAnchor="middle" fill={i === 0 ? '#fff' : K}>{t}</text></g>)}</svg></div>
-        <div className="cell c5"><small>AI ASSISTANT</small><div className="serif big">Just say it</div><p>Type “dentist next Tuesday at 4” and Reminds sets it up.</p>
-          <AiDemo /></div>
+          {['Chime', 'Bell', 'Alarm'].map((t, i) => <g className="snd" key={t}><rect x={i * 92} y="60" width="76" height="40" rx="10" fill={i === 0 ? '#3E8F6B' : '#fff'} /><text x={i * 92 + 38} y="85" fontSize="13" fontWeight="700" textAnchor="middle" fill={i === 0 ? '#fff' : K}>{t}</text></g>)}</svg></div></article>
+        <article className="cell c5"><div className="cell-copy"><small>AI ASSISTANT</small><h3 className="serif big">Just say it</h3><p>Describe a task and let Reminds set it up.</p></div>
+          <div className="cell-art"><AiDemo /></div></article>
       </div></div></section>)
 }

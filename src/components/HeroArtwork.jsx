@@ -10,7 +10,7 @@ export default function HeroArtwork() {
       <path d="M343 228v23M85 374v21"/>
     </g>
 
-    <g className="par" transform="translate(-8 -6)" data-base-x="-8" data-base-y="-6" data-d="-8" data-x="3" data-r="-1" style={type}>
+    <g className="par" transform="translate(0 2)" data-base-x="0" data-base-y="2" data-d="-8" data-x="3" data-r="-1" style={type}>
       <path className="art-depth" d="M44 34h112l15 15v78h-112l-15-15z" fill={ink}/>
       <rect x="30" y="24" width="112" height="86" fill="#fff" stroke={ink} strokeWidth="1.4"/>
       <text x="43" y="44" fontSize="8.5" fontWeight="700" letterSpacing="1" fill="#69746B">TODAY</text>
@@ -32,7 +32,7 @@ export default function HeroArtwork() {
       <path d="m394 96 8-5-2 10" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </g>
 
-    <g className="par" transform="translate(-6 5)" data-base-x="-6" data-base-y="5" data-d="8" data-x="-6" data-r="-1" style={type}>
+    <g className="par" transform="translate(-6 -5)" data-base-x="-6" data-base-y="-5" data-d="8" data-x="-6" data-r="-1" style={type}>
       <path className="art-depth" d="M34 222h169l20 20v127H54l-20-20z" fill={ink}/>
       <path d="M34 222h169v127H34z" fill={pink}/>
       <path className="art-depth" d="M203 222l20 20v127l-20-20z" fill="#111915"/>

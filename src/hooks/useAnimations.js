@@ -7,6 +7,7 @@ export default function useAnimations(root) {
   useEffect(() => {
     const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const compact = window.matchMedia('(max-width: 640px)').matches
+    const storyNarrow = window.matchMedia('(max-width: 820px)').matches
     let lenis
     let lenisTicker
     const syncScrollTrigger = () => ScrollTrigger.update()
@@ -57,9 +58,9 @@ export default function useAnimations(root) {
       })
       ;[100, 300, 500, 700, 900].forEach(x => {
         pointerTl.set('.tech-pointer', { attr: { cx: 500, cy: 0 }, opacity: 1 })
-          .to('.tech-pointer', { attr: { cy: 22 }, duration: .24, ease: 'power1.inOut' })
+          .to('.tech-pointer', { attr: { cy: 28 }, duration: .24, ease: 'power1.inOut' })
           .to('.tech-pointer', { attr: { cx: x }, duration: .34, ease: 'power1.inOut' })
-          .to('.tech-pointer', { attr: { cy: 72 }, duration: .25, ease: 'power1.inOut' })
+          .to('.tech-pointer', { attr: { cy: 84 }, duration: .25, ease: 'power1.inOut' })
           .to('.tech-pointer', { opacity: 0, duration: .16, delay: .22 })
       })
       gsap.utils.toArray('.hero-artwork .par').forEach((g, i) => gsap.to(g, {
@@ -74,26 +75,29 @@ export default function useAnimations(root) {
       gsap.from('.snd', { y: 24, opacity: 0, stagger: .12, duration: .6, ease: 'back.out(1.7)', scrollTrigger: bentoSt('.c4') })
       gsap.from('.pf', { scaleX: 0, transformOrigin: '0% 50%', transformBox: 'fill-box', duration: 1.2, delay: .6, ease: 'power2.out', scrollTrigger: bentoSt('.c4') })
       gsap.from('.cell', { y: 60, opacity: 0, stagger: .1, duration: .8, ease: 'power3.out', scrollTrigger: bentoSt('.bento', 'top 85%') })
-      const cs = gsap.utils.toArray('.sc')
-      const sh = () => document.querySelector('.stk').offsetHeight
-      const stackEnd = () => compact ? `+=${Math.max(1100, Math.round(innerHeight * 1.7))}` : '+=2000'
-      const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '.stk', start: 'top 80px', end: stackEnd, pin: true, scrub: true, anticipatePin: 1, invalidateOnRefresh: true } })
-      cs.forEach((c, i) => {
+      const scenes = gsap.utils.toArray('.story-scene')
+      const storySteps = gsap.utils.toArray('.story-step')
+      gsap.set(scenes.slice(1), { autoAlpha: 0 })
+      storySteps.forEach((step, i) => {
+        gsap.fromTo(step.querySelector('.story-step-inner'),
+          { y: 26, opacity: .4 },
+          { y: 0, opacity: 1, ease: 'none', scrollTrigger: { trigger: step, start: storyNarrow ? 'top 92%' : 'top 85%', end: storyNarrow ? 'top 65%' : 'top 48%', scrub: true } })
         if (!i) return
-        tl.from(c, { y: sh, duration: 1 }, i === 1 ? .3 : '>+.3').to(cs[i - 1], { scale: .96, duration: 1 }, '<').from(c.querySelectorAll('.il'), { y: 30, opacity: 0, stagger: .1, duration: .6 }, '<+.4')
-        if (i === 2) {
-          tl.to(cs[0], { scaleX: .92, duration: 1 }, '<')
-            .fromTo(c.querySelector('.ov-ring'), { strokeDashoffset: 239 }, { strokeDashoffset: 60, duration: .8, ease: 'power2.out' }, '<+.25')
-            .fromTo(c.querySelectorAll('.ov-check'), { strokeDasharray: 18, strokeDashoffset: 18 }, { strokeDashoffset: 0, duration: .24, stagger: .12, ease: 'power2.out' }, '<')
-        }
+        const outgoing = scenes[i - 1]
+        const incoming = scenes[i]
+        const oldPieces = outgoing.querySelectorAll('.story-piece')
+        const newPieces = incoming.querySelectorAll('.story-piece')
+        gsap.timeline({ scrollTrigger: { trigger: step, start: storyNarrow ? 'top 82%' : 'top 54%', end: storyNarrow ? 'top 50%' : 'top 18%', scrub: true } })
+          .set(incoming, { visibility: 'visible' }, 0)
+          .to(oldPieces, { x: j => j % 2 ? 60 : -55, y: j => j % 2 ? -36 : 42, rotation: j => j % 2 ? 8 : -8, opacity: 0, stagger: .07, duration: .6 }, 0)
+          .to(outgoing, { opacity: 0, duration: .55 }, .12)
+          .fromTo(newPieces,
+            { x: j => j % 2 ? -65 : 70, y: j => j % 2 ? 40 : -45, rotation: j => j % 2 ? -8 : 8, opacity: 0 },
+            { x: 0, y: 0, rotation: 0, opacity: 1, stagger: .08, duration: .6, ease: 'power2.out' }, .3)
+          .to(incoming, { opacity: 1, duration: .5 }, .25)
+          .set(outgoing, { visibility: 'hidden' }, 1)
       })
-      tl.to({}, { duration: .3 })
-      gsap.from(cs[0].querySelectorAll('.il'), { y: 50, opacity: 0, stagger: .12, duration: .8, ease: 'power3.out', scrollTrigger: st('.stk') })
-      gsap.fromTo('.rp', { scale: .58, opacity: .45 }, { scale: 1.42, opacity: 0, duration: 2.2, repeat: -1, stagger: 1.1, ease: 'power1.out', transformOrigin: '50% 50%', transformBox: 'fill-box' })
-      gsap.fromTo('.ov-wave rect', { scaleY: .45 }, { scaleY: 1, transformOrigin: '50% 50%', transformBox: 'fill-box', duration: .42, repeat: -1, yoyo: true, stagger: .1, ease: 'sine.inOut' })
-      gsap.to('.ov-save', { y: -7, duration: 1.4, repeat: -1, yoyo: true, ease: 'sine.inOut' })
-      gsap.to('.ov-bell', { rotation: 8, transformOrigin: '50% 50%', transformBox: 'fill-box', duration: .22, repeat: 5, yoyo: true, repeatDelay: 1.6, ease: 'sine.inOut' })
-      gsap.to('.ov-confetti', { y: -5, rotation: 3, transformOrigin: '50% 50%', transformBox: 'fill-box', duration: 1.1, repeat: -1, yoyo: true, ease: 'sine.inOut' })
+      gsap.to('.story-scene .story-alert-ring', { scale: 1.06, transformOrigin: '50% 50%', transformBox: 'fill-box', duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut', stagger: .3 })
       const wd = () => document.querySelector('.wlw')
       gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '.wlw', start: 'top top', end: () => compact ? '+=700' : '+=1000', pin: true, scrub: compact ? true : .6, anticipatePin: 1, invalidateOnRefresh: true } })
         .fromTo('.wl', { width: () => Math.min(440, innerWidth * .8), height: () => innerHeight * .36, borderRadius: 200 }, { width: () => wd().offsetWidth, height: () => wd().offsetHeight, borderRadius: 0, duration: 1 })
@@ -102,7 +106,47 @@ export default function useAnimations(root) {
     }, root)
     ScrollTrigger.refresh()
 
+    const scrollToHash = (hash, immediate = false) => {
+      const target = document.getElementById(hash.slice(1))
+      if (!target) return
+      const navHeight = document.querySelector('nav')?.offsetHeight || 0
+      const waitlistPin = hash === '#waitlist'
+        ? ScrollTrigger.getAll().find(trigger => trigger.trigger === target && trigger.vars.pin)
+        : null
+      const destination = waitlistPin
+        ? waitlistPin.start + (waitlistPin.end - waitlistPin.start) * .99
+        : Math.max(0, target.getBoundingClientRect().top + window.scrollY - (hash === '#top' ? 0 : navHeight))
+
+      if (lenis) {
+        lenis.scrollTo(destination, {
+          immediate,
+          duration: Math.min(1.8, Math.max(.85, Math.abs(destination - window.scrollY) / 1800)),
+          easing: t => 1 - Math.pow(1 - t, 3),
+        })
+      } else {
+        window.scrollTo({ top: destination, behavior: immediate || rm ? 'auto' : 'smooth' })
+      }
+    }
+    const handleAnchorClick = event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const link = event.target.closest?.('a[href^="#"]')
+      const hash = link?.getAttribute('href')
+      if (!hash || !document.getElementById(hash.slice(1))) return
+      event.preventDefault()
+      if (window.location.hash !== hash) window.history.pushState(null, '', hash)
+      scrollToHash(hash)
+    }
+    const handleHistoryNavigation = () => scrollToHash(window.location.hash || '#top', true)
+    document.addEventListener('click', handleAnchorClick)
+    window.addEventListener('popstate', handleHistoryNavigation)
+    const initialHashFrame = window.location.hash
+      ? window.requestAnimationFrame(() => scrollToHash(window.location.hash, true))
+      : null
+
     return () => {
+      document.removeEventListener('click', handleAnchorClick)
+      window.removeEventListener('popstate', handleHistoryNavigation)
+      if (initialHashFrame) window.cancelAnimationFrame(initialHashFrame)
       ctx.revert()
       if (lenis) {
         lenis.off('scroll', syncScrollTrigger)
