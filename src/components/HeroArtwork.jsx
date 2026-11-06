@@ -1,76 +1,82 @@
 const ink = '#14201A'
-const green = '#568D73'
-const pink = '#F3BDD4'
-const lilac = '#CBB5EC'
+const green = '#4C8F69'
+const violet = '#9D75D2'
+const lilac = '#B9A9E4'
 const type = { fontFamily: 'DM Sans, sans-serif' }
 
+// Same soft language as the feature cards: faded surfaces, dashed links, quiet motion.
 export default function HeroArtwork() {
   return <svg className="hero-artwork" viewBox="0 0 480 490" width="100%" role="img" aria-label="Illustrated task dashboard with a reminder, connected timeline, progress chart, and completion graph">
-    <g className="art-grid" fill="none" strokeWidth="1.2" strokeLinecap="square" aria-hidden="true">
-      <path d="M343 228v23M85 374v21"/>
+    <defs>
+      <linearGradient id="hero-green" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#5E9C7B" />
+        <stop offset="1" stopColor="#3E7F5E" />
+      </linearGradient>
+    </defs>
+
+    <g aria-hidden="true">
+      <path className="dash" d="M347 217V246" />
+      <path className="dash" d="M190 356V414" />
+      <path className="dash" d="M150 74H262" />
     </g>
 
-    <g className="par" transform="translate(0 2)" data-base-x="0" data-base-y="2" data-d="-8" data-x="3" data-r="-1" style={type}>
-      <rect className="art-depth" x="36" y="30" width="112" height="86" fill={ink}/>
-      <rect x="30" y="24" width="112" height="86" fill="#fff" stroke={ink} strokeWidth="1.4"/>
-      <text x="43" y="44" fontSize="8.5" fontWeight="700" letterSpacing="1" fill="#69746B">TODAY</text>
-      <text x="43" y="72" fontSize="25" fontWeight="700" fill={ink}>3 / 4</text>
-      <text x="43" y="87" fontSize="9" fill="#68766C">tasks complete</text>
-      <rect x="43" y="97" width="80" height="4" fill="#E7E9E5"/><rect x="43" y="97" width="60" height="4" fill={green}/>
+    <g style={type}><g className="float">
+      <rect className="card soft" x="30" y="30" width="120" height="84" rx="0" />
+      <text x="46" y="53" fontSize="9" fontWeight="700" letterSpacing="1" fill="var(--mut)">TODAY</text>
+      <text x="46" y="83" fontSize="26" fontWeight="700" fill="var(--ink)">3 / 4</text>
+      <text x="46" y="98" fontSize="9.5" fill="var(--mut)">tasks complete</text>
+      <rect x="46" y="104" width="88" height="4" rx="2" fill="var(--art-track)" />
+      <rect x="46" y="104" width="66" height="4" rx="2" fill={green} />
+    </g></g>
+
+    <g style={type}><g className="float" style={{ animationDelay: '-1.6s' }}>
+      <rect className="soft" x="262" y="45" width="170" height="168" rx="0" fill="url(#hero-green)" />
+      <text x="282" y="73" fontSize="9" fontWeight="700" letterSpacing=".6" fill="#E4F0E7">WEEKLY PROGRESS</text>
+      <text x="282" y="97" fontSize="22" fontWeight="700" fill="#fff">On track</text>
+      <path d="M282 124h132M282 148h132M282 172h132M282 196h132" stroke="#fff" strokeOpacity=".24" strokeDasharray="3 4" />
+      <path d="M284 184 309 156 329 163 351 135 371 143 402 103" fill="none" stroke="#0F2A1E" strokeOpacity=".28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path className="draw" d="M284 172 309 144 329 151 351 123 371 131 402 91" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="309" cy="144" r="4.5" fill="#3E7F5E" stroke="#fff" strokeWidth="2" /><circle cx="351" cy="123" r="4.5" fill="#3E7F5E" stroke="#fff" strokeWidth="2" />
+      <path d="m394 96 8-5-2 10" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </g></g>
+
+    <g style={type}><g className="float" style={{ animationDelay: '-3.1s' }}>
+      <rect className="soft" x="34" y="224" width="176" height="128" rx="0" fill={lilac} />
+      <circle className="ring" cx="184" cy="253" r="19" fill="none" stroke="#3D2A7A" strokeOpacity=".28" />
+      <circle cx="184" cy="253" r="13" fill="#fff" />
+      <path d="M184 246.5c-3.2 0-4.8 2.3-4.8 5.1v2.6l-1.4 2h12.4l-1.4-2v-2.6c0-2.8-1.6-5.1-4.8-5.1Zm-1.5 11.6c.5 1.7 2.5 1.7 3 0" fill="none" stroke={violet} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="50" y="288" fontSize="9.5" fontWeight="700" letterSpacing=".8" fill="#3D2A7A">NEXT REMINDER</text>
+      <text x="50" y="314" fontSize="21" fontWeight="700" fill={ink}>Team Meets</text>
+      <text x="50" y="336" fontSize="12.5" fontWeight="600" fill={ink}>6:30 PM · Priority alert</text>
+    </g></g>
+
+    <g style={type}>
+      <text x="270" y="258" fontSize="9" fontWeight="700" letterSpacing=".7" fill="var(--ink)">DAY AT A GLANCE</text>
+      <path d="M270 268h140" stroke="var(--ink)" strokeOpacity=".3" strokeWidth="1.2" />
+      <rect x="270" y="280" width="44" height="7" rx="3.5" fill="var(--ink)" fillOpacity=".78" /><rect x="316" y="280" width="36" height="7" rx="3.5" fill={lilac} /><rect x="354" y="280" width="56" height="7" rx="3.5" fill="var(--art-track)" />
+      <rect x="270" y="295" width="28" height="7" rx="3.5" fill="var(--ink)" fillOpacity=".78" /><rect x="300" y="295" width="78" height="7" rx="3.5" fill={green} /><rect x="380" y="295" width="30" height="7" rx="3.5" fill="var(--art-track)" />
+      <rect x="270" y="310" width="38" height="7" rx="3.5" fill="var(--ink)" fillOpacity=".78" /><rect x="310" y="310" width="34" height="7" rx="3.5" fill={violet} /><rect x="346" y="310" width="64" height="7" rx="3.5" fill="var(--art-track)" />
+      <text x="270" y="338" fontSize="9" fill="var(--mut)">Plan · focus · finish</text>
     </g>
 
-    <g className="par" transform="translate(12 -2)" data-base-x="12" data-base-y="-2" data-d="-11" data-x="6" data-r="1" style={type}>
-      <rect className="art-depth" x="269" y="52" width="162" height="166" fill={ink}/>
-      <path d="M262 45h162v166H262z" fill={green}/>
-      <text x="280" y="69" fontSize="9" fontWeight="700" letterSpacing=".4" fill="#E4F0E7">WEEKLY PROGRESS</text>
-      <text x="280" y="91" fontSize="22" fontWeight="700" fill="#fff">On track</text>
-      <path d="M280 116h126M280 143h126M280 170h126M280 197h126" stroke="#fff" strokeOpacity=".24"/>
-      <path d="M284 185 309 157 329 164 351 136 371 144 402 104" fill="none" stroke={ink} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <path className="draw" d="M284 172 309 144 329 151 351 123 371 131 402 91" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="309" cy="144" r="4" fill={green} stroke="#fff" strokeWidth="2"/><circle cx="351" cy="123" r="4" fill={green} stroke="#fff" strokeWidth="2"/>
-      <path d="m394 96 8-5-2 10" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </g>
+    <g style={type}><g className="float" style={{ animationDelay: '-2.2s' }}>
+      <rect className="card soft" x="366" y="326" width="72" height="88" rx="0" />
+      <circle cx="402" cy="361" r="19" fill="none" stroke="var(--art-track)" strokeWidth="7" />
+      <circle cx="402" cy="361" r="19" fill="none" stroke={green} strokeWidth="7" strokeLinecap="round" strokeDasharray="89 120" transform="rotate(-90 402 361)" />
+      <text x="402" y="365.5" fontSize="12" fontWeight="700" textAnchor="middle" fill="var(--ink)">75%</text>
+      <text x="402" y="398" fontSize="8.5" fontWeight="700" letterSpacing=".8" textAnchor="middle" fill="var(--mut)">DONE</text>
+    </g></g>
 
-    <g className="par" transform="translate(-6 -5)" data-base-x="-6" data-base-y="-5" data-d="8" data-x="-6" data-r="-1" style={type}>
-      <rect className="art-depth" x="41" y="229" width="169" height="127" fill={ink}/>
-      <path d="M34 222h169v127H34z" fill={pink}/>
-      <rect x="49" y="239" width="24" height="24" rx="7" fill="#fff"/>
-      <text x="61" y="256" fontSize="15" fontFamily="Georgia,serif" fontStyle="italic" textAnchor="middle" fill={ink}>re</text>
-      <text x="49" y="282" fontSize="10" fontWeight="700" letterSpacing=".6" fill="#57444D">NEXT REMINDER</text>
-      <text x="49" y="308" fontSize="20" fontWeight="700" fill={ink}>Team Meets</text>
-      <text x="49" y="331" fontSize="12" fontWeight="600" fill={ink}>6:30 PM · Priority alert</text>
-      <path d="M151 272h34M151 279h24" stroke={ink} strokeWidth="1.5"/>
-      <circle cx="183" cy="292" r="6" fill="#fff" stroke={ink}/><circle cx="183" cy="292" r="2" fill={ink}/>
-    </g>
-
-    <g className="par" transform="translate(14 9)" data-base-x="14" data-base-y="9" data-d="-6" data-x="4" style={type}>
-      <text x="257" y="254" fontSize="9" fontWeight="700" letterSpacing=".7" fill="var(--ink)">DAY AT A GLANCE</text>
-      <path d="M256 265h141" stroke="var(--ink)" strokeWidth="1.3"/>
-      <rect x="257" y="276" width="49" height="7" fill="var(--ink)"/><rect x="308" y="276" width="39" height="7" fill={pink}/><rect x="349" y="276" width="43" height="7" fill="var(--art-track)"/>
-      <rect x="257" y="291" width="29" height="7" fill="var(--ink)"/><rect x="288" y="291" width="82" height="7" fill={green}/><rect x="372" y="291" width="20" height="7" fill="var(--art-track)"/>
-      <rect x="257" y="306" width="39" height="7" fill="var(--ink)"/><rect x="298" y="306" width="36" height="7" fill={lilac}/><rect x="336" y="306" width="56" height="7" fill="var(--art-track)"/>
-      <text x="258" y="334" fontSize="9" fill="var(--mut)">Plan · focus · finish</text>
-    </g>
-
-    <g className="par" transform="translate(-2 7)" data-base-x="-2" data-base-y="7" data-d="5" data-x="-4" style={type}>
-      <text x="47" y="398" fontSize="9" fontWeight="700" letterSpacing=".8" fill="var(--ink)">TODAY’S TIMELINE</text>
-      <path d="M54 409v45M171 409v45M286 409v45" stroke="var(--ink)" strokeWidth="1.2"/>
-      <path d="M52 420h105l12 12H64l-12-12z" fill={green}/>
-      <rect x="68" y="426" width="30" height="4" rx="2" fill="#fff"/><rect x="68" y="435" width="56" height="3" rx="1.5" fill="#fff" opacity=".7"/>
-      <path d="M166 420h102l12 12H178l-12-12z" fill={lilac}/>
-      <rect x="181" y="426" width="47" height="4" rx="2" fill="#fff"/><rect x="181" y="435" width="30" height="3" rx="1.5" fill="#fff" opacity=".7"/>
-      <path d="M279 420h71l12 12h-71l-12-12z" fill={pink}/>
-      <rect x="294" y="426" width="38" height="4" rx="2" fill={ink} opacity=".7"/>
-      <text x="56" y="462" fontSize="9" fill="var(--mut)">9:00 AM</text><text x="173" y="462" fontSize="9" fill="var(--mut)">1:00 PM</text><text x="287" y="462" fontSize="9" fill="var(--mut)">6:30 PM</text>
-    </g>
-
-    <g className="par" transform="translate(18 11)" data-base-x="18" data-base-y="11" data-d="-10" data-x="4" data-r="1" style={type}>
-      <rect className="art-depth" x="385" y="336" width="60" height="80" fill={ink}/>
-      <rect x="378" y="329" width="60" height="80" fill="#fff" stroke={ink} strokeWidth="1.4"/>
-      <circle cx="408" cy="364" r="19" fill="none" stroke="#E5EAE5" strokeWidth="7"/>
-      <circle cx="408" cy="364" r="19" fill="none" stroke={green} strokeWidth="7" strokeDasharray="89 120" transform="rotate(-90 408 364)"/>
-      <text x="408" y="370" fontSize="12" fontWeight="700" textAnchor="middle" fill={ink} style={type}>75%</text>
-      <text x="408" y="396" fontSize="8" fontWeight="700" textAnchor="middle" fill="#68766C" style={type}>DONE</text>
+    <g style={type}>
+      <text x="52" y="398" fontSize="9" fontWeight="700" letterSpacing=".8" fill="var(--ink)">TODAY’S TIMELINE</text>
+      <path className="dash" d="M52 420H360" />
+      <rect x="52" y="432" width="112" height="24" rx="12" fill={green} /><rect x="64" y="442" width="30" height="4" rx="2" fill="#fff" />
+      <rect x="172" y="432" width="104" height="24" rx="12" fill={violet} /><rect x="184" y="442" width="40" height="4" rx="2" fill="#fff" />
+      <rect x="284" y="432" width="76" height="24" rx="12" fill="var(--art-track)" /><rect x="296" y="442" width="34" height="4" rx="2" fill="var(--ink)" fillOpacity=".55" />
+      <circle className="node" cx="60" cy="420" r="5" fill={green} stroke="var(--bg)" strokeWidth="2" />
+      <circle className="node" cx="176" cy="420" r="5" fill={violet} stroke="var(--bg)" strokeWidth="2" style={{ animationDelay: '.5s' }} />
+      <circle className="node" cx="291" cy="420" r="5" fill="var(--ink)" stroke="var(--bg)" strokeWidth="2" style={{ animationDelay: '1s' }} />
+      <text x="56" y="474" fontSize="9" fill="var(--mut)">9:00 AM</text><text x="173" y="474" fontSize="9" fill="var(--mut)">1:00 PM</text><text x="287" y="474" fontSize="9" fill="var(--mut)">6:30 PM</text>
     </g>
   </svg>
 }

@@ -36,11 +36,8 @@ export function Marquee() {
 export default function Hero() {
   return (
     <div className="wrap hero">
-      <div className="hero-meta h-a">
-        <span><span className="hero-meta-dot" aria-hidden="true" /> REMINDS <span className="hero-meta-separator">·</span> EARLY ACCESS</span>
-        <span>COMING TO IOS + ANDROID</span>
-      </div>
       <div className="hero-copy">
+        <span className="hero-kicker h-a"><span className="hero-meta-dot" aria-hidden="true" />EARLY ACCESS <span className="hero-meta-separator">·</span> COMING TO IOS + ANDROID</span>
         <h1 className="h-a"><span className="hero-title-line hero-title-sans">Reminders you</span><span className="hero-title-line"><span className="hero-title-accent">can’t miss</span><span className="hero-title-sans">,</span></span><span className="hero-title-line hero-title-sans">right on time.</span></h1>
         <p className="sub h-a">Plan your tasks, choose a sound for each reminder, and mark the important ones so they stand out when it’s time.</p>
         <div className="hero-join h-a"><div className="hero-actions"><a className="btn g" href="#waitlist">Join waitlist</a><a className="btn hero-explore" href="#features">Explore</a></div><small>Join the list for a note when the app is ready.</small><HeroFeatures /></div>

@@ -16,14 +16,14 @@ export default function ReminderSetup() {
         </dl>
       </div>
       <figure className="setup-card" aria-label="Example of a reminder being set up">
-        <figcaption className="setup-card-head"><span className="setup-chip">NEW</span><span className="setup-path">reminders / today</span></figcaption>
+        <figcaption className="setup-card-head"><span className="setup-dots" aria-hidden="true"><i/><i/><i/></span><span className="setup-chip">NEW</span><span className="setup-path">reminders / today</span></figcaption>
         <pre className="setup-code" aria-hidden="true">
           <span className="setup-line c">{'// "Team Meets today at 6:30pm"'}</span>
           <span className="setup-line">{'{'}</span>
           <span className="setup-line">{'  '}<i>"task"</i>{': '}<b>"Team Meets"</b>{','}</span>
           <span className="setup-line">{'  '}<i>"time"</i>{': '}<b>"Today · 6:30 PM"</b>{','}</span>
           <span className="setup-line">{'  '}<i>"sound"</i>{': '}<b>"Chime"</b>{','}</span>
-          <span className="setup-line">{'  '}<i>"priority"</i>{': '}<em>true</em></span>
+          <span className="setup-line hl">{'  '}<i>"priority"</i>{': '}<em>true</em></span>
           <span className="setup-line">{'}'}</span>
           <span className="setup-line gap" />
           <span className="setup-line ok">✓ Scheduled</span>

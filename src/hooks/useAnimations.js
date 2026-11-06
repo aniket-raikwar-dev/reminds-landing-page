@@ -40,7 +40,7 @@ export default function useAnimations(root) {
       })
       gsap.timeline()
         .from('.h-a', { y: 40, opacity: 0, stagger: .12, duration: .9, ease: 'power3.out' })
-        .from('.art svg g', { scale: .6, opacity: 0, transformOrigin: '50% 50%', stagger: .1, duration: .8, ease: 'back.out(1.6)' }, .2)
+        .from('.art svg > g', { scale: .6, opacity: 0, transformOrigin: '50% 50%', stagger: .1, duration: .8, ease: 'back.out(1.6)' }, .2)
         .from('.draw', { strokeDashoffset: 200, strokeDasharray: 200, duration: 1.2, ease: 'power2.inOut' }, 1)
       gsap.utils.toArray('.tech-line').forEach(line => {
         const length = line.getTotalLength()
