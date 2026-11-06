@@ -39,7 +39,7 @@ export default function WhatRemindsDoes() {
       <div className="product-preview-actions"><a className="product-preview-primary" href="#waitlist">Join the waitlist</a><a className="product-preview-secondary" href="#overview">See how it works</a></div>
     </div>
     <div className="wrap product-preview-details">
-      <div><h3>Important reminders,<br/>hard to miss.</h3><p>Pick the tasks that need extra attention and choose the sound that brings them to you, even during Do Not Disturb.</p><a href="#features">Explore the features <span aria-hidden="true">↗</span></a></div>
+      <div><h3>Important reminders,<br/>hard to miss.</h3><p>Pick the tasks that need extra attention and choose the sound that makes them hard to miss.</p><a href="#features">Explore the features <span aria-hidden="true">↗</span></a></div>
       <div><h3>A calmer way to<br/>see your day.</h3><p>Move between your calendar and timeline, check things off, and let the AI assistant help plan what comes next.</p><a href="#overview">See the three steps <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>

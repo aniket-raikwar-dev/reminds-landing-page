@@ -11,7 +11,7 @@ export default function HeroArtwork() {
     </g>
 
     <g className="par" transform="translate(0 2)" data-base-x="0" data-base-y="2" data-d="-8" data-x="3" data-r="-1" style={type}>
-      <path className="art-depth" d="M44 34h112l15 15v78h-112l-15-15z" fill={ink}/>
+      <rect className="art-depth" x="36" y="30" width="112" height="86" fill={ink}/>
       <rect x="30" y="24" width="112" height="86" fill="#fff" stroke={ink} strokeWidth="1.4"/>
       <text x="43" y="44" fontSize="8.5" fontWeight="700" letterSpacing="1" fill="#69746B">TODAY</text>
       <text x="43" y="72" fontSize="25" fontWeight="700" fill={ink}>3 / 4</text>
@@ -20,9 +20,8 @@ export default function HeroArtwork() {
     </g>
 
     <g className="par" transform="translate(12 -2)" data-base-x="12" data-base-y="-2" data-d="-11" data-x="6" data-r="1" style={type}>
-      <path className="art-depth" d="M262 45h162l18 19v166h-162l-18-19z" fill={ink}/>
+      <rect className="art-depth" x="269" y="52" width="162" height="166" fill={ink}/>
       <path d="M262 45h162v166H262z" fill={green}/>
-      <path className="art-depth" d="M424 45l18 19v166l-18-19z" fill="#111915"/>
       <text x="280" y="69" fontSize="9" fontWeight="700" letterSpacing=".4" fill="#E4F0E7">WEEKLY PROGRESS</text>
       <text x="280" y="91" fontSize="22" fontWeight="700" fill="#fff">On track</text>
       <path d="M280 116h126M280 143h126M280 170h126M280 197h126" stroke="#fff" strokeOpacity=".24"/>
@@ -33,9 +32,8 @@ export default function HeroArtwork() {
     </g>
 
     <g className="par" transform="translate(-6 -5)" data-base-x="-6" data-base-y="-5" data-d="8" data-x="-6" data-r="-1" style={type}>
-      <path className="art-depth" d="M34 222h169l20 20v127H54l-20-20z" fill={ink}/>
+      <rect className="art-depth" x="41" y="229" width="169" height="127" fill={ink}/>
       <path d="M34 222h169v127H34z" fill={pink}/>
-      <path className="art-depth" d="M203 222l20 20v127l-20-20z" fill="#111915"/>
       <rect x="49" y="239" width="24" height="24" rx="7" fill="#fff"/>
       <text x="61" y="256" fontSize="15" fontFamily="Georgia,serif" fontStyle="italic" textAnchor="middle" fill={ink}>re</text>
       <text x="49" y="282" fontSize="10" fontWeight="700" letterSpacing=".6" fill="#57444D">NEXT REMINDER</text>
@@ -67,7 +65,7 @@ export default function HeroArtwork() {
     </g>
 
     <g className="par" transform="translate(18 11)" data-base-x="18" data-base-y="11" data-d="-10" data-x="4" data-r="1" style={type}>
-      <path className="art-depth" d="M390 341h48l15 15v68h-48l-15-15z" fill={ink}/>
+      <rect className="art-depth" x="385" y="336" width="60" height="80" fill={ink}/>
       <rect x="378" y="329" width="60" height="80" fill="#fff" stroke={ink} strokeWidth="1.4"/>
       <circle cx="408" cy="364" r="19" fill="none" stroke="#E5EAE5" strokeWidth="7"/>
       <circle cx="408" cy="364" r="19" fill="none" stroke={green} strokeWidth="7" strokeDasharray="89 120" transform="rotate(-90 408 364)"/>

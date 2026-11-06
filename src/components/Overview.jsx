@@ -48,7 +48,7 @@ function Step1() {
 }
 
 function Step2() {
-  return <svg viewBox="0 0 520 420" style={font} role="img" aria-label="A priority reminder arrives at 6:30 PM while Do Not Disturb is on">
+  return <svg viewBox="0 0 520 420" style={font} role="img" aria-label="A priority reminder arrives at 6:30 PM and plays the sound you chose">
     <DiagramBase number="02" />
     <g className="story-piece">
       <circle className="story-alert-ring" cx="250" cy="207" r="141" fill="none" stroke={green} strokeOpacity=".17" strokeWidth="1.5" />
@@ -65,8 +65,8 @@ function Step2() {
     </g>
     <g className="story-piece">
       <rect x="44" y="101" width="152" height="62" fill={pink} />
-      <text x="61" y="126" fontSize="10" fontWeight="700" letterSpacing="1.2" fill="#14201A">PHONE STATUS</text>
-      <text x="61" y="147" fontSize="17" fontWeight="600" fill="#14201A">DND is on</text>
+      <text x="61" y="126" fontSize="10" fontWeight="700" letterSpacing="1.2" fill="#14201A">REMINDER SET</text>
+      <text x="61" y="147" fontSize="17" fontWeight="600" fill="#14201A">Priority alert</text>
       <path d="M120 163v29h33" fill="none" stroke={ink} strokeOpacity=".35" strokeWidth="1.5" />
       <circle cx="153" cy="192" r="3" fill={ink} />
     </g>
@@ -76,7 +76,7 @@ function Step2() {
       <rect x="314" y="257" width="166" height="65" fill={paper} stroke={ink} strokeWidth="1.4" />
       <circle cx="335" cy="279" r="6" fill={green} />
       <text x="350" y="283" fontSize="11" fontWeight="700" letterSpacing=".7" fill={muted}>DELIVERED</text>
-      <text x="332" y="307" fontSize="17" fontWeight="600" fill={ink}>Rings through</text>
+      <text x="332" y="307" fontSize="17" fontWeight="600" fill={ink}>Sound plays</text>
     </g>
   </svg>
 }
@@ -113,8 +113,8 @@ function Step3() {
 }
 
 const steps = [
-  { title: 'Create a task', label: 'MAKE IT YOURS', text: 'Name what matters, choose the time and sound, and decide whether it should alert you during Do Not Disturb.', details: ['Date & time', 'Your sound', 'Priority alert'], Art: Step1 },
-  { title: 'Get the reminder', label: 'RIGHT ON TIME', text: 'When the moment arrives, Reminds plays your chosen sound and brings the task to your attention.', details: ['On schedule', 'Gets through DND', 'Ready to act'], Art: Step2 },
+  { title: 'Create a task', label: 'MAKE IT YOURS', text: 'Name what matters, choose the time and sound, and mark the ones that need a priority alert.', details: ['Date & time', 'Your sound', 'Priority alert'], Art: Step1 },
+  { title: 'Get the reminder', label: 'RIGHT ON TIME', text: 'When the moment arrives, Reminds plays your chosen sound and brings the task to your attention.', details: ['On schedule', 'Hard to miss', 'Ready to act'], Art: Step2 },
   { title: 'Check it off', label: 'FROM HERE TO DONE', text: 'Mark it complete, see what is next in your timeline or calendar, and let AI help plan the rest.', details: ['Daily progress', 'Timeline & calendar', 'AI planning'], Art: Step3 },
 ]
 

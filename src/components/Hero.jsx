@@ -1,5 +1,13 @@
-import { Join } from './Waitlist'
 import HeroArtwork from './HeroArtwork'
+
+const heroFeatures = ['Plan your day', 'Hear what matters', 'See your progress']
+
+function HeroFeatures() {
+  return <ul className="hero-features" aria-label="What Reminds helps you do">
+    {heroFeatures.map((text, index) => <li key={text}><span className="hero-feature-number" aria-hidden="true">0{index + 1}</span><span className="hero-feature-text">{text}</span></li>)}
+  </ul>
+}
+
 export function Marquee() {
   return <div className="mq tech-stack" aria-label="Tools used to build Reminds"><div className="wrap">
     <div className="tech-heading">
@@ -33,15 +41,10 @@ export default function Hero() {
         <span>COMING TO IOS + ANDROID</span>
       </div>
       <div className="hero-copy">
-        <h1 className="h-a"><span className="hero-title-line hero-title-sans">Reminders that</span><span className="hero-title-line"><span className="hero-title-accent">reach you</span><span className="hero-title-sans">, right</span></span><span className="hero-title-line hero-title-sans">on time.</span></h1>
-        <p className="sub h-a">Plan your tasks, choose a sound for each reminder, and let the important ones alert you—even during Do Not Disturb.</p>
-        <div className="hero-join h-a"><Join /><small>Join the list for a note when the app is ready.</small></div>
+        <h1 className="h-a"><span className="hero-title-line hero-title-sans">Reminders you</span><span className="hero-title-line"><span className="hero-title-accent">can’t miss</span><span className="hero-title-sans">,</span></span><span className="hero-title-line hero-title-sans">right on time.</span></h1>
+        <p className="sub h-a">Plan your tasks, choose a sound for each reminder, and mark the important ones so they stand out when it’s time.</p>
+        <div className="hero-join h-a"><div className="hero-actions"><a className="btn g" href="#waitlist">Join waitlist</a><a className="btn hero-explore" href="#features">Explore</a></div><small>Join the list for a note when the app is ready.</small><HeroFeatures /></div>
       </div>
       <div className="art hero-art"><HeroArtwork /></div>
-      <div className="hero-features h-a" aria-label="What Reminds helps you do">
-        <div><span>01</span><strong>Plan your day</strong></div>
-        <div><span>02</span><strong>Hear what matters</strong></div>
-        <div><span>03</span><strong>See your progress</strong></div>
-      </div>
     </div>)
 }

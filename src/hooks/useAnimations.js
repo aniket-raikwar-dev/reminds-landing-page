@@ -66,9 +66,17 @@ export default function useAnimations(root) {
       gsap.from('.bar', { scaleY: 0, transformOrigin: '50% 100%', stagger: .08, duration: .8, ease: 'power3.out', clearProps: 'transform', scrollTrigger: bentoSt('.bento', 'top 75%') })
       gsap.from('.hc', { opacity: 0, stagger: { amount: 1.2, from: 'random' }, clearProps: 'opacity', scrollTrigger: bentoSt('.c2') })
       gsap.from('.tb', { scaleX: 0, transformOrigin: '0 50%', stagger: .2, duration: .9, ease: 'power3.out', clearProps: 'transform', scrollTrigger: bentoSt('.c3') })
-      gsap.from('.snd', { y: 24, opacity: 0, stagger: .12, duration: .6, ease: 'back.out(1.7)', clearProps: 'transform,opacity', scrollTrigger: bentoSt('.c4') })
-      gsap.from('.pf', { scaleX: 0, transformOrigin: '0% 50%', transformBox: 'fill-box', duration: 1.2, delay: .6, ease: 'power2.out', clearProps: 'transform', scrollTrigger: bentoSt('.c4') })
       gsap.from('.cell', { y: 60, opacity: 0, stagger: .1, duration: .8, ease: 'power3.out', scrollTrigger: bentoSt('.bento', 'top 85%') })
+      // Scroll reveal: headings and content blocks ease up into place as each section arrives.
+      const revealTargets = '.bento-heading,.tech-heading,.tech-network,.setup-copy>*,.setup-card,.product-preview-main>*,.product-preview-details>div,.comparison-heading,.comparison-group,.plans-heading,.plan'
+      gsap.set(revealTargets, { y: 36, opacity: 0 })
+      ScrollTrigger.batch(revealTargets, {
+        start: 'top 90%',
+        once: true,
+        onEnter: batch => gsap.to(batch, { y: 0, opacity: 1, duration: .85, stagger: .09, ease: 'power3.out', overwrite: true, clearProps: 'transform,opacity' }),
+      })
+      gsap.set('.setup-line', { opacity: 0, x: -8 })
+      gsap.to('.setup-line', { opacity: 1, x: 0, duration: .4, stagger: .12, ease: 'power2.out', delay: .25, scrollTrigger: { trigger: '.setup-card', start: 'top 80%', once: true } })
       const scenes = gsap.utils.toArray('.story-scene')
       const storySteps = gsap.utils.toArray('.story-step')
       gsap.set(scenes.slice(1), { autoAlpha: 0 })
